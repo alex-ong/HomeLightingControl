@@ -18,8 +18,8 @@ class HomeLightingControl(object):
     #if our lightness is > 0.95, it'll use the white LED
     def setColour(self, hue, sat, light):
         message = self.group.color(milight.color_from_hls(hue, light, sat))
-        self.controller.send(message)
-    
+        self.controller.send(message)   
+        
     #takes an int from 0->100
     def setBrightness(self, brightness):
         message = self.group.brightness(brightness)
@@ -30,3 +30,4 @@ if __name__ == '__main__':
     hlc.turnOn()
     hlc.setColour(0.0,0.0,1.0)
     hlc.setBrightness(100)
+    

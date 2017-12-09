@@ -160,9 +160,9 @@ class LightBulb:
             return self.white(group)
         else:
             return self._concat_command('COLOR', params=(hue, group))
-    def brightness(self, level=0, group=0):
+    def brightness(self, level=0, group=0):    
         if level not in range(0,101):
-            raise Exception("Brightness must be value between 0 and 100")
+            raise Exception("Brightness must be value between 0 and 100:" + str(level))
         return self._concat_command('BRIGHTNESS', params=(level, group))
     def warmness(self, level=0, group=0):
         if level not in range(0,101):
