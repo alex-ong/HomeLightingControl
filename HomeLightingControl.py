@@ -16,9 +16,13 @@ class HomeLightingControl(object):
     
     #used when you want a HSL light
     #if our lightness is > 0.95, it'll use the white LED
-    def setColour(self, hue, sat, light):
+    def setColourHSL(self, hue, sat, light):
         message = self.group.color(milight.color_from_hls(hue, light, sat))
         self.controller.send(message)   
+    
+    def setColourRGB(self, r,g,b):
+        message = self.group.color(milight.color_from_rgb(r,g,b))
+        self.controller.send(message)       
         
     #takes an int from 0->100
     def setBrightness(self, brightness):
