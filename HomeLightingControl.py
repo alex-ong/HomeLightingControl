@@ -1,8 +1,8 @@
 import milight
-HOST = '192.168.1.104'
+HOST = '192.168.1.108'
 controller = milight.MiLight({'host': HOST, 'port': 8899}, wait_duration=0) #Create a controller with 0 wait between commands
 light = milight.LightBulb(['rgbw', 'white', 'rgb']) #Can specify which types of bulbs to use
-controller.send(light.on(1)) # Turn on group 1 lights
+controller.send(light.on(0)) # Turn on group 1 lights
 controller.send(light.all_on()) # Turn on all lights, equivalent to light.on(0)
 
 class HomeLightingControl(object):
@@ -32,6 +32,6 @@ class HomeLightingControl(object):
 if __name__ == '__main__':
     hlc = HomeLightingControl(HOST)
     hlc.turnOn()
-    hlc.setColour(0.0,0.0,1.0)
+    hlc.setColourRGB(1.0,0.0,1.0)
     hlc.setBrightness(100)
     
