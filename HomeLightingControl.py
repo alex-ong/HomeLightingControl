@@ -24,6 +24,10 @@ class HomeLightingControl(object):
         message = self.group.color(milight.color_from_rgb(r,g,b))
         self.controller.send(message)       
         
+    def setColourRGB_tuple(self, rgb):
+        r,g,b = rgb
+        self.setColourRGB(r,g,b)
+        
     #takes an int from 0->100
     def setBrightness(self, brightness):
         message = self.group.brightness(brightness)
